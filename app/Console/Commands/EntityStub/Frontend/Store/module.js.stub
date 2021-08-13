@@ -1,0 +1,20 @@
+import itemSchema from './schemas/_ENTITY_.schema';
+import ModuleBase from "@/store/modules/ModuleBase";
+
+const resourceName = '_PLURAL_ENTITY_'
+const base = new ModuleBase(itemSchema, resourceName);
+export default {
+    namespaced: base.namespaced,
+    state: {
+        ...base.state,
+    },
+    getters: {
+        ...base.getters,
+    },
+    mutations: {
+        ...base.mutations,
+    },
+    actions: {
+        ...base.actions
+    }
+}

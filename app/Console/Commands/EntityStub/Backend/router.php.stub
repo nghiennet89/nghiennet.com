@@ -1,0 +1,16 @@
+<?php
+
+use App\Http\Controllers\Api\Api_PLURAL_ENTITY_TITLE_Controller;
+use Illuminate\Support\Facades\Route;
+
+Route::group(['middleware' => ['auth:api', 'verified']], function () {
+    Route::get('/export', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'export'])->middleware('scope:_PLURAL_ENTITY_-read');
+    Route::post('/import', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'import'])->middleware('scopes:_PLURAL_ENTITY_-update,_PLURAL_ENTITY_-create');
+
+    Route::get('/', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'index'])->middleware('scope:_PLURAL_ENTITY_-read');
+    Route::get('/{id}', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'show'])->middleware('scope:_PLURAL_ENTITY_-read');
+    Route::post('/', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'store'])->middleware('scope:_PLURAL_ENTITY_-create');
+    Route::put('/{id}', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'update'])->middleware('scope:_PLURAL_ENTITY_-update');
+    Route::delete('/{id}', [Api_PLURAL_ENTITY_TITLE_Controller::class, 'destroy'])->middleware('scope:_PLURAL_ENTITY_-delete');
+});
+

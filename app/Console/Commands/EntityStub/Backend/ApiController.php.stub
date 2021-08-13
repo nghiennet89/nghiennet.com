@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Requests\Api\_ENTITY_TITLE_CreateRequest;
+use App\Http\Requests\Api\_ENTITY_TITLE_UpdateRequest;
+use App\Repositories\_ENTITY_TITLE_Repository;
+use App\Validators\_ENTITY_TITLE_Validator;
+
+/**
+ * Class RolesController.
+ *
+ * @package namespace App\Http\Controllers;
+ */
+class Api_PLURAL_ENTITY_TITLE_Controller extends ApiBaseController
+{
+    public function __construct(_ENTITY_TITLE_Repository $repository, _ENTITY_TITLE_Validator $validator)
+    {
+        parent::__construct(
+            $repository,
+            $validator,
+            _ENTITY_TITLE_CreateRequest::class,
+            _ENTITY_TITLE_UpdateRequest::class
+        );
+    }
+}
